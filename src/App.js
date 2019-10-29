@@ -1,16 +1,23 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Button from '@material-ui/core/Button';
+import { useSelector } from 'react-redux'
+import { useDispatch } from "react-redux";
 
 function App() {
-    const  [counter, setCounter]=useState(0);
+    const counter = useSelector(state=>state);
+    const dispatch = useDispatch();
     return (
         <flex className="mainy">
-        <Button variant="contained" color="primary" onClick={()=> setCounter(counter+1)}>
-            Hello World
-        </Button>
-        <li> {counter}</li>
+            <p>helo</p>
+            <button id="add-btn-pls" onClick={() => dispatch({
+                type:'ADD_COUNTER',
+                step:1
+            })
+            } className="btn btn-success">Add</button>
+        <h3 id="grand-total">{counter.num}</h3>
         </flex>
     );
 }
+
 
 export default App;
