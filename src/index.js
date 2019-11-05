@@ -1,18 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Auth from './Controllers/Auth/Auth';
+import App from './Controllers/App/App';
 import { Provider } from 'react-redux';
-import reduce from './reducers';
-import { createStore } from 'redux';
 import * as serviceWorker from './serviceWorker';
-import {addCounter, getValue} from "./actions";
+import ourStore from './Store/authstore';
+import { Switch, Link, Route, Router } from 'react-router-dom'
 
-const store = createStore(reduce);
+
 const rootElement = document.getElementById('root');
 ReactDOM.render(
-    <Provider store={store}>
-        <App />
+    <Provider store={ourStore}>
+        <Auth/>
     </Provider>,
     rootElement
 );
