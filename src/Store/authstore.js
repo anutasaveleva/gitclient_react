@@ -5,7 +5,7 @@ let user = JSON.parse(localStorage.getItem('user'));
 const initialState = {
     user:{},
     loggedIn: false,
-    repList : ['a', 'b']
+    repList : 'myreps'
 };
 function authentication(state = initialState, action) {
     switch (action.type) {

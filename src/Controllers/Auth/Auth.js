@@ -2,7 +2,7 @@ import {connect} from 'react-redux';
 import {logIn, logout} from '../../Store/authstore';
 import Auth from '../../Component/Auth/Auth'
 
-const mapStateToProps = ({authentication}) => ({
+const mapStateToProps = (authentication) => ({
     authentication
 });
 

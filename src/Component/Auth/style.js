@@ -10,7 +10,7 @@ display: flex;
 
 export const SButton = styled.button`
     width: 300px;
-    height: 15%;
+    height: 25px;
     margin: 10px 10px;
     display: flex;
     border: 1px solid #ccc;

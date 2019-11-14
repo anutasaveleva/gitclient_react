@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
 import styles from './Auth.module.css';
 import {BehaviorSubject} from "rxjs";
+import App from "../App/Reps";
 import {SButton, Title, InputContainer, MyForm, Container} from './style';
 
-const LoginForm = ({repList}) => {
+const LoginForm = ({stats}) => {
     const [login, setLogin] = useState('');
     const [isChecked, setChecked] = useState(false);
     const [password, setPassword] = useState('');
@@ -11,9 +12,11 @@ const LoginForm = ({repList}) => {
     return (
         <Container>
             {(currentUser.value != null ?
-                    (<div><SButton type="ghost"
+                    (<div>
+                        <App/>
+                        <SButton type="ghost"
                              onClick={logOut}>Log out</SButton>
-                     {repList}
+
                     </div>):
                     <div>
                         <Title>Log in page</Title>
