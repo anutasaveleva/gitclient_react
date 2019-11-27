@@ -4,13 +4,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 It allows you to use some GIT management tools.
 
 
-#Current features
+### Current features
 * Logging in and out
 * Star repositories
 * Go to GitHub to see the selected repository
 
 
-#How to use
+### How to use
 It is possible to clone repository or download it as ZIP.
 
 Install all dependencies via `yarn install`
