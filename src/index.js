@@ -31,10 +31,12 @@ const client = new ApolloClient({
 
 ReactDOM.render(
 
-    <Provider store={ourStore}><ApolloProvider client={client}>
-        <Auth/></ApolloProvider>
+    <Provider store={ourStore}>
+        <ApolloProvider client={client}>
+        <Auth/>
+        </ApolloProvider>
     </Provider>
-    ,
+,
     rootElement
 );
 
