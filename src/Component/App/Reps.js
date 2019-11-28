@@ -2,10 +2,9 @@ import React from 'react';
 import gql from 'graphql-tag';
 import {Query, Mutation} from 'react-apollo';
 
-
 const GET_REPOSITORIES_OF_ORGANIZATION = gql`
-  {
-    organization(login: "the-road-to-learn-react") {
+  query Reps($name: String!) {
+    organization(login: $name) {
       repositories(first: 20) {
         edges {
           node {
@@ -31,10 +30,11 @@ const STAR_REPOSITORY = gql`
   }
 `;
 
-const Reps = () => (
-    <Query query={GET_REPOSITORIES_OF_ORGANIZATION}>
+const Reps = ({name}) => (
+    <Query query={GET_REPOSITORIES_OF_ORGANIZATION} variables={{name}}>
         {({data, loading}) =>
             loading ? <div>Loading ...</div> : <Repositories repositories={data.organization.repositories}/>
+
         }
     </Query>
 );

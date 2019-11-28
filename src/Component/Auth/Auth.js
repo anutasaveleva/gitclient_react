@@ -13,7 +13,7 @@ const LoginForm = ({stats}) => {
     console.log('cur user',currentUser);
     return currentUser ? (
         <div>
-            <Reps/>
+            <Reps name='google'/>
             <SButton type="ghost"
                      onClick={logOut}>Log out</SButton>
         </div>
