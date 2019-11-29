@@ -15,7 +15,7 @@ function authentication(state = initialState, action) {
                 loggedIn: true
             };
         case 'LOGOUT':
-            const currentUser = new BehaviorSubject(JSON.parse(localStorage.getItem('currentUser')));
+            const currentUser = localStorage.getItem('currentUser');
             localStorage.removeItem('currentUser');
             currentUser.next(null);
             return {

@@ -18,6 +18,14 @@ Install all dependencies via `yarn install`
 
 In the project directory, you can run project with `npm start` or `yarn start`
 
+You need to create your personal access token to get access to GitHub information.
+
+* Open your account on GitHub and go to developer settings;
+* Generate personal access token and grant all permissions;
+* Create .env file and add your token with the name `REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN`
+
+Now you can get access to GitHub information from your computer.
+
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
