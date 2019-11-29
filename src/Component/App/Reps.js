@@ -1,6 +1,8 @@
 import React from 'react';
 import gql from 'graphql-tag';
 import {Query, Mutation} from 'react-apollo';
+import Star from "./AddStar";
+import RemoveStar from "./RemoveStar";
 
 const GET_REPOSITORIES_OF_ORGANIZATION = gql`
   query Reps($name: String!) {
@@ -14,17 +16,6 @@ const GET_REPOSITORIES_OF_ORGANIZATION = gql`
             viewerHasStarred
           }
         }
-      }
-    }
-  }
-`;
-
-const STAR_REPOSITORY = gql`
-  mutation($id: ID!) {
-    addStar(input: { starrableId: $id }) {
-      starrable {
-        id
-        viewerHasStarred
       }
     }
   }
@@ -44,22 +35,11 @@ class Repositories extends React.Component {
         selectedRepositoryIds: [],
     };
 
-    toggleSelectRepository = (id, isSelected) => {
-        let {selectedRepositoryIds} = this.state;
-
-        selectedRepositoryIds = isSelected
-            ? selectedRepositoryIds.filter(itemId => itemId !== id)
-            : selectedRepositoryIds.concat(id);
-
-        this.setState({selectedRepositoryIds});
-    };
-
     render() {
         return (
             <RepositoryList
                 repositories={this.props.repositories}
                 selectedRepositoryIds={this.state.selectedRepositoryIds}
-                toggleSelectRepository={this.toggleSelectRepository}
             />
         );
     }
@@ -68,7 +48,6 @@ class Repositories extends React.Component {
 const RepositoryList = ({
                             repositories,
                             selectedRepositoryIds,
-                            toggleSelectRepository,
                         }) => (
     <ul>
         {repositories.edges.map(({node}) => {
@@ -82,36 +61,13 @@ const RepositoryList = ({
 
             return (
                 <li className={rowClassName.join(' ')} key={node.id}>
-                    <Select
-                        id={node.id}
-                        isSelected={isSelected}
-                        toggleSelectRepository={toggleSelectRepository}
-                    />{' '}
+
                     <a href={node.url}>{node.name}</a>{' '}
-                    {!node.viewerHasStarred && <Star id={node.id}/>}
+                    {!node.viewerHasStarred && <Star id={node.id} />}
+                    { node.viewerHasStarred && <RemoveStar id={node.id}/>}
                 </li>
             );
         })}
     </ul>
 );
-
-const Star = ({id}) => (
-    <Mutation mutation={STAR_REPOSITORY} variables={{id}}>
-        {starRepository => (
-            <button type="button" onClick={starRepository}>
-                Star
-            </button>
-        )}
-    </Mutation>
-);
-
-const Select = ({id, isSelected, toggleSelectRepository}) => (
-    <button
-        type="button"
-        onClick={() => toggleSelectRepository(id, isSelected)}
-    >
-        {isSelected ? 'Unselect' : 'Select'}
-    </button>
-);
-
 export default Reps;
