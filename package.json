@@ -27,7 +27,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "yarn build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
@@ -45,5 +45,5 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://github.com/anutasaveleva/gitclient_react.git"
+  "homepage": "https://anutasaveleva.github.io/gitclient_react"
 }

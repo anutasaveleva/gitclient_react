@@ -1,5 +1,4 @@
 import { createStore } from 'redux';
-import {BehaviorSubject} from "rxjs";
 
 let user = JSON.parse(localStorage.getItem('user'));
 const initialState = {
@@ -33,7 +32,7 @@ let store  = createStore(authentication,initialState,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 export const logIn = () => {
-    const currentUser = new BehaviorSubject(JSON.parse(localStorage.getItem('currentUser')));
+    const currentUser = localStorage.getItem('currentUser');
     const requestOptions = {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},

@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Mutation } from 'react-apollo'
 import gql from "graphql-tag";
 import StarIcon from '@material-ui/icons/Star';
-import color from "@material-ui/core/colors/yellow";
 
 
 

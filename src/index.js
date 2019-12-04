@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Auth from './Controllers/Auth/Auth';
 import App from './Controllers/App/App';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
@@ -10,7 +9,6 @@ import { ApolloProvider } from 'react-apollo';
 import { ApolloClient } from 'apollo-client';
 import { HttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
-import {Route, Router} from "react-router-dom";
 
 const cache = new InMemoryCache();
 
