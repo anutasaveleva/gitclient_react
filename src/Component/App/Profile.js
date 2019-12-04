@@ -1,7 +1,5 @@
 import gql from "graphql-tag";
-import React, {Component} from "react";
-import RemoveStar from "./RemoveStar";
-import AddStar from "./AddStar";
+import React from "react";
 import { Query } from 'react-apollo'
 import {Repositories} from "./Reps";
 
@@ -12,6 +10,7 @@ query Myrepositories($first:Int!){
         login
         avatarUrl
         bio
+        email   
         repositories(first: $first) {
             edges {
                 node {
@@ -26,16 +25,18 @@ query Myrepositories($first:Int!){
         }
     }
 }
-`
+`;
 
 
-function Displayrepos(props) {
+function DisplayFullprofile(props) {
     const {data} = props
     return (
         <div>
             <img src={data.viewer.avatarUrl}/>
             <h1> {data.viewer.name}</h1>
             <h2> {data.viewer.login}</h2>
+            <h2> {data.viewer.email}</h2>
+            <h3> {data.viewer.bio}</h3>
 
             <h2>Repositories</h2>
             <Repositories repositories={data.viewer.repositories}/>
@@ -53,7 +54,7 @@ function Myrepositories() {
                         .viewer.repositories
                         .edges.length;
                     return (
-                        <Displayrepos data={data}/>)
+                        <DisplayFullprofile data={data}/>)
                 }}
             </Query>
         );

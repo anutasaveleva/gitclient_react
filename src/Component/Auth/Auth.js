@@ -1,12 +1,10 @@
 import React, {useState} from 'react'
 import styles from './Auth.module.css';
-import {SButton, Title, InputContainer, MyForm, Container} from './style';
-import Search from "../App/Search";
+import {SButton, Title, InputContainer, MyForm} from './style';
 import {Redirect} from "react-router-dom";
 
 const LoginForm = ({stats}) => {
     const [login, setLogin] = useState('');
-    const [isChecked, setChecked] = useState(false);
     const [password, setPassword] = useState('');
     const currentUser = localStorage.getItem('currentUser');
     console.log('cur user',currentUser);

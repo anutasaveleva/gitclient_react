@@ -19,15 +19,13 @@ function Routing() {
                     <Link to="/repositories">Repositories</Link>
                 </li>
                 <li>
-                    <Link to="/profile">Profile</Link>
+                    <Link to="/myprofile">Profile</Link>
                 </li>
             </ul>
             <Switch>
-                {<Route path="/profile" component={Profile} />}
+                {<Route path="/myprofile" component={Profile} />}
                 {/*<Route path="repository/:id" component={Repository} />*/}
-                <Route path="/auth">
-                    <Auth/>
-                </Route>
+                {<Route path="/auth" component={Auth}/>}
                 <Route path="/" component={HomePage}/>
             </Switch>
         </Router>
