@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/anutasaveleva/gitclient_react.git/precache-manifest.49b09cef7782e832fed5e09f9f1cd2f7.js"
+  "/anutasaveleva/gitclient_react.git/precache-manifest.b8340321f8d7ce62429b5871efd06fa4.js"
 );
 
 self.addEventListener('message', (event) => {

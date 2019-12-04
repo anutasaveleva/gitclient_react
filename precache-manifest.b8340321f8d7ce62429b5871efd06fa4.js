@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "44d2805dbdc67537e9e6af6d97940515",
+    "revision": "fc5cd430801c35c3fea42445e53f4571",
     "url": "/anutasaveleva/gitclient_react.git/index.html"
   },
   {
-    "revision": "74ca45a57b884cd60b09",
+    "revision": "333a370614fbf965222a",
     "url": "/anutasaveleva/gitclient_react.git/static/css/main.dcb73b24.chunk.css"
   },
   {
-    "revision": "fc0cc401d8c01ec559b7",
-    "url": "/anutasaveleva/gitclient_react.git/static/js/2.073f6b5d.chunk.js"
+    "revision": "bfd390ab50649a09fdee",
+    "url": "/anutasaveleva/gitclient_react.git/static/js/2.57adefaf.chunk.js"
   },
   {
-    "revision": "74ca45a57b884cd60b09",
-    "url": "/anutasaveleva/gitclient_react.git/static/js/main.f1180d94.chunk.js"
+    "revision": "333a370614fbf965222a",
+    "url": "/anutasaveleva/gitclient_react.git/static/js/main.a66388d1.chunk.js"
   },
   {
     "revision": "05c171ca773c4be8fb88",
