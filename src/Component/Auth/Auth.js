@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import styles from './Auth.module.css';
 import {SButton, Title, InputContainer, MyForm, Container} from './style';
 import Search from "../App/Search";
+import {Redirect} from "react-router-dom";
 
 const LoginForm = ({stats}) => {
     const [login, setLogin] = useState('');
@@ -10,12 +11,7 @@ const LoginForm = ({stats}) => {
     const currentUser = localStorage.getItem('currentUser');
     console.log('cur user',currentUser);
     return currentUser ? (
-        <div>
-            <Search/>
-
-            <SButton type="ghost"
-                     onClick={logOut}>Log out</SButton>
-        </div>
+        <Redirect to='/'/>
     ) : (
         <div>
             <Title>Log in page</Title>
@@ -53,11 +49,6 @@ const LoginForm = ({stats}) => {
         return promise;
     }
 
-    function logOut() {
-        localStorage.removeItem('currentUser');
-        window.location.reload(true);
-
-    }
 
 };
 

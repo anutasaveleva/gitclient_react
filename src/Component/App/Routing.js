@@ -6,12 +6,13 @@ import {
     Route,
     Link
 } from "react-router-dom";
+import HomePage from "./HomePage";
 function Routing() {
     return (
         <Router>
             <ul>
                 <li>
-                    <Link to="/login">Log In</Link>
+                    <Link to="/auth">Log In</Link>
                 </li>
                 <li>
                     <Link to="/repositories">Repositories</Link>
@@ -26,6 +27,7 @@ function Routing() {
                 <Route path="/auth">
                     <Auth/>
                 </Route>
+                <Route path="/" component={HomePage}/>
             </Switch>
         </Router>
     )
