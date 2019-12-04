@@ -1,12 +1,9 @@
 import React from 'react';
 import {SButton} from "../Auth/style";
-
+import Routing from "./Routing";
 function App() {
     return (
-        <flex className="mainy">
-            <SButton type="ghost"
-                     onClick={logOut}>Log out</SButton>
-        </flex>
+        <Routing/>
     );
 }
 

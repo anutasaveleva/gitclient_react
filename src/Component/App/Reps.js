@@ -24,8 +24,9 @@ const GET_REPOSITORIES_OF_ORGANIZATION = gql`
 const Reps = ({name}) => (
     <Query query={GET_REPOSITORIES_OF_ORGANIZATION} variables={{name}}>
         {({data, loading}) =>
-            loading ? <div>Loading ...</div> : <Repositories repositories={data.organization.repositories}/>
-
+            loading ? <div>Loading ...</div> :
+                data ? <Repositories repositories={data.organization.repositories}/> :
+                <p>Nothing was found</p>
         }
     </Query>
 );

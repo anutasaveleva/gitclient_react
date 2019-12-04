@@ -1,33 +1,22 @@
-import React, { useState } from "react";
+import React from 'react';
+import Reps from "./Reps";
 
 
-const Search = (props) => {
-    const [searchValue, setSearchValue] = useState("");
-
-    const handleSearchInputChanges = (e) => {
-        setSearchValue(e.target.value);
-    }
-
-    const resetInputField = () => {
-        setSearchValue("")
-    }
-
-    const callSearchFunction = (e) => {
-        e.preventDefault();
-        props.search(searchValue);
-        resetInputField();
-    }
-
+function Search() {
+    const [searchTerm, setSearchTerm] = React.useState("");
+    const handleChange = event => {
+        setSearchTerm(event.target.value);
+    };
     return (
-        <form className="search">
+        <div className="App">
             <input
-                value={searchValue}
-                onChange={handleSearchInputChanges}
                 type="text"
+                placeholder="Search"
+                value={searchTerm}
+                onChange={handleChange}
             />
-            <input onClick={callSearchFunction} type="submit" value="SEARCH" />
-        </form>
-    );
+            <Reps name={searchTerm}/>
+        </div>);
 }
 
-export default Search;
+export default Search
