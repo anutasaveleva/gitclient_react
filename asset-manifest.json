@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/gitclient_react/static/css/main.dcb73b24.chunk.css",
-    "main.js": "/gitclient_react/static/js/main.86e4f0a5.chunk.js",
-    "main.js.map": "/gitclient_react/static/js/main.86e4f0a5.chunk.js.map",
-    "runtime-main.js": "/gitclient_react/static/js/runtime-main.f1ed66e6.js",
-    "runtime-main.js.map": "/gitclient_react/static/js/runtime-main.f1ed66e6.js.map",
-    "static/js/2.bbbb7b8b.chunk.js": "/gitclient_react/static/js/2.bbbb7b8b.chunk.js",
-    "static/js/2.bbbb7b8b.chunk.js.map": "/gitclient_react/static/js/2.bbbb7b8b.chunk.js.map",
-    "index.html": "/gitclient_react/index.html",
-    "precache-manifest.b27a29825bd2c351a9865897da428d10.js": "/gitclient_react/precache-manifest.b27a29825bd2c351a9865897da428d10.js",
-    "service-worker.js": "/gitclient_react/service-worker.js",
-    "static/css/main.dcb73b24.chunk.css.map": "/gitclient_react/static/css/main.dcb73b24.chunk.css.map"
+    "main.css": "anutasaveleva.github.io/gitclient_react/static/css/main.dcb73b24.chunk.css",
+    "main.js": "anutasaveleva.github.io/gitclient_react/static/js/main.c60ca8da.chunk.js",
+    "main.js.map": "anutasaveleva.github.io/gitclient_react/static/js/main.c60ca8da.chunk.js.map",
+    "runtime-main.js": "anutasaveleva.github.io/gitclient_react/static/js/runtime-main.b638f10f.js",
+    "runtime-main.js.map": "anutasaveleva.github.io/gitclient_react/static/js/runtime-main.b638f10f.js.map",
+    "static/js/2.d06b8fcf.chunk.js": "anutasaveleva.github.io/gitclient_react/static/js/2.d06b8fcf.chunk.js",
+    "static/js/2.d06b8fcf.chunk.js.map": "anutasaveleva.github.io/gitclient_react/static/js/2.d06b8fcf.chunk.js.map",
+    "index.html": "anutasaveleva.github.io/gitclient_react/index.html",
+    "precache-manifest.c83e231c1154252162661da3f5222aac.js": "anutasaveleva.github.io/gitclient_react/precache-manifest.c83e231c1154252162661da3f5222aac.js",
+    "service-worker.js": "anutasaveleva.github.io/gitclient_react/service-worker.js",
+    "static/css/main.dcb73b24.chunk.css.map": "anutasaveleva.github.io/gitclient_react/static/css/main.dcb73b24.chunk.css.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.f1ed66e6.js",
-    "static/js/2.bbbb7b8b.chunk.js",
+    "static/js/runtime-main.b638f10f.js",
+    "static/js/2.d06b8fcf.chunk.js",
     "static/css/main.dcb73b24.chunk.css",
-    "static/js/main.86e4f0a5.chunk.js"
+    "static/js/main.c60ca8da.chunk.js"
   ]
 }
