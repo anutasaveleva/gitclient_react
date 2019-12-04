@@ -61,12 +61,12 @@ const RepositoryList = ({
             }
 
             return (<div>
-                <li className={rowClassName.join(' ')} key={node.id}>
+                <p className={rowClassName.join(' ')} key={node.id}>
 
                     <a href={node.url}>{node.name}</a>{' '}
                     {!node.viewerHasStarred && <Star id={node.id} />}
                     { node.viewerHasStarred && <RemoveStar id={node.id}/>}
-                </li></div>
+                </p></div>
             );
         })}
     </ul>

@@ -1,21 +1,20 @@
 import React from 'react';
-import gql from 'graphql-tag';
-import {Query, Mutation} from 'react-apollo';
 import Search from "./Search";
 import {SButton} from "../Auth/style";
 import {Redirect} from "react-router-dom";
+import './App.css';
 
 export default function Home()  {
     const currentUser = localStorage.getItem('currentUser');
 return (
     currentUser ? (
-        <div className="Home">
-        <div>
-            <Search/>
-            <SButton type="ghost"
-                     onClick={logOut}>Log out</SButton>
+        <div><div className="wrap">
+            <div className="search">
+            <Search class="searchTerm"/>
         </div>
-    </div>) : <Redirect to='/auth'/>
+    </div>
+            <SButton onClick={logOut}>Log out</SButton>
+        </div>) : <Redirect to='/auth'/>
 )
 };
 

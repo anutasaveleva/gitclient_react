@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Reps from "./Reps";
 import {Profiles} from "./Profiles";
+import './App.css';
 
 function Search() {
     const [searchTerm, setSearchTerm] = React.useState("");
@@ -10,9 +11,10 @@ function Search() {
     };
     return (
         <div className="App">
-            <button onClick={()=>setFilter(!filter)}> {filter? "By users": "By repositories"} </button>
+            <button class="button" onClick={()=>setFilter(!filter)}> {filter? "By users": "By repositories"} </button>
             <input
                 type="text"
+                class="searchTerm"
                 placeholder="Search"
                 value={searchTerm}
                 onChange={handleChange}

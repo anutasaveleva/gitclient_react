@@ -11,7 +11,7 @@ const LoginForm = ({stats}) => {
     return currentUser ? (
         <Redirect to='/'/>
     ) : (
-        <div>
+        <div class={styles.divStyle}>
             <Title>Log in page</Title>
             <MyForm>
                 <div>

@@ -2,6 +2,7 @@ import gql from "graphql-tag";
 import React from "react";
 import { Query } from 'react-apollo'
 import {Repositories} from "./Reps";
+import './App.css';
 
 const reposQuery = gql`
 query Myrepositories($first:Int!){
@@ -30,18 +31,18 @@ query Myrepositories($first:Int!){
 
 function DisplayFullprofile(props) {
     const {data} = props
-    return (
-        <div>
-            <img src={data.viewer.avatarUrl}/>
+    return (<div>
+        <div class="card">
+            <img src={data.viewer.avatarUrl} width="100%"/>
             <h1> {data.viewer.name}</h1>
-            <h2> {data.viewer.login}</h2>
-            <h2> {data.viewer.email}</h2>
-            <h3> {data.viewer.bio}</h3>
-
+            <p class="login"> {data.viewer.login}</p>
+            <p> {data.viewer.email}</p>
+            <p> {data.viewer.bio}</p>
+        </div>
             <h2>Repositories</h2>
             <Repositories repositories={data.viewer.repositories}/>
 
-        </div>
+</div>
     )
 }
 
