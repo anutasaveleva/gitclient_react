@@ -31,7 +31,7 @@ const Reps = ({name}) => (
     </Query>
 );
 
-class Repositories extends React.Component {
+export class Repositories extends React.Component {
     state = {
         selectedRepositoryIds: [],
     };
@@ -60,13 +60,13 @@ const RepositoryList = ({
                 rowClassName.push('row_selected');
             }
 
-            return (
+            return (<div>
                 <li className={rowClassName.join(' ')} key={node.id}>
 
                     <a href={node.url}>{node.name}</a>{' '}
                     {!node.viewerHasStarred && <Star id={node.id} />}
                     { node.viewerHasStarred && <RemoveStar id={node.id}/>}
-                </li>
+                </li></div>
             );
         })}
     </ul>

@@ -7,6 +7,7 @@ import {
     Link
 } from "react-router-dom";
 import HomePage from "./HomePage";
+import Profile from "./Profile";
 function Routing() {
     return (
         <Router>
@@ -22,7 +23,7 @@ function Routing() {
                 </li>
             </ul>
             <Switch>
-                {/*<Route path="profile/:id" component={Profile} />*/}
+                {<Route path="/profile" component={Profile} />}
                 {/*<Route path="repository/:id" component={Repository} />*/}
                 <Route path="/auth">
                     <Auth/>
