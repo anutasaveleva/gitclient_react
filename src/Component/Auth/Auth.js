@@ -1,6 +1,4 @@
-import React, {useState} from 'react'
-import styles from './Auth.module.css';
-import {SButton, Title, InputContainer, MyForm} from './style';
+import React, {useState} from 'react';
 import {Redirect} from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";

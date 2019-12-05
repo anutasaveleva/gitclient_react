@@ -1,6 +1,5 @@
 import React from 'react';
 import Search from "./Search";
-import {SButton} from "../Auth/style";
 import {Redirect} from "react-router-dom";
 import './App.css';
 

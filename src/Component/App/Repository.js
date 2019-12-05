@@ -1,9 +1,7 @@
 import {useParams} from "react-router";
-import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 import gql from "graphql-tag";
 import {Query} from "@apollo/react-components";
 import React from "react";
-import Grid from "@material-ui/core/Grid";
 import './App.css';
 import LockIcon from '@material-ui/icons/Lock';
 import LockOpenIcon from '@material-ui/icons/LockOpen';

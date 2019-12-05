@@ -1,7 +1,5 @@
-import { AppBar, Toolbar,IconButton , Typography,Button} from '@material-ui/core';
+import { AppBar, Toolbar,IconButton , Typography} from '@material-ui/core';
 import React from "react";
-import {Redirect} from "react-router-dom";
-import Search from "../App/Search";
 import {SButton} from "../Auth/style";
 import {AccountCircle} from "@material-ui/icons";
 

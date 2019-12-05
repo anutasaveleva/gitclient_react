@@ -1,6 +1,6 @@
 import React from 'react';
 import gql from 'graphql-tag';
-import {Query, Mutation} from 'react-apollo';
+import {Query} from 'react-apollo';
 import './App.css';
 
 const userQuery = gql`
@@ -30,8 +30,8 @@ const User = ({data}) => {
     return (
         <div className="card">
             <img src={data.user.avatarUrl} width="100%"/>
-            <h1> <a href={data.user.login}>{data.user.name}</a></h1>
-            <p className="login"> {data.user.email}</p>
+            <h1> <a href={data.user.login}>{data.user.login}</a></h1>
+            <p className="login"> {data.user.name}</p>
         </div>
     );
 }

@@ -59,9 +59,6 @@ function Myrepositories() {
         <Query query={reposQuery} variables={{first: 10}}>
             {({data, loading}) => {
                 if (loading) return <p>loading...</p>;
-                let current = data
-                    .viewer.repositories
-                    .edges.length;
                 return (
                     <DisplayFullprofile data={data.viewer}/>)
             }}
@@ -100,9 +97,6 @@ export function UserRepositories() {
             {({data, loading}) => {
                 console.log(data);
                 if (loading) return <p>loading...</p>;
-                let current = data
-                    .user.repositories
-                    .edges.length;
                 return (
                     <DisplayFullprofile data={data.user}/>)
             }}

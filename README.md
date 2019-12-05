@@ -2,10 +2,10 @@
 
 ### Current features
 <ol> 
-<li>Logging in and out</li>
-<li> Starring and unstarring repositories</li>
-<li> Searching by users and repositories</li>
-<li> Go to GitHub to see the selected repository</li>
+<li>Log in and out</li>
+<li> Star and unstar repositories</li>
+<li> Search by users and repositories</li>
+<li> See extended information about repository</li>
 <li>See information about user</li>
 </ol>
 

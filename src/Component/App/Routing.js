@@ -3,8 +3,7 @@ import Auth from "../Auth/Auth";
 import {
     BrowserRouter as Router,
     Switch,
-    Route,
-    Link, Redirect
+    Route, Redirect
 } from "react-router-dom";
 import HomePage from "./HomePage";
 import Profile, {UserRepositories} from "./Profile";
