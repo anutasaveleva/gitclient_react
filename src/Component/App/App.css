@@ -30,9 +30,9 @@ a:any-link{
   display: flex;
 }
 
-.search {
+.Search {
   width: 100%;
-  position: relative;
+  position: fixed;
   display: flex;
 }
 

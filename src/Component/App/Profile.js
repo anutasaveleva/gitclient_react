@@ -5,6 +5,7 @@ import {Repositories} from "./Reps";
 import './App.css';
 import Grid from "@material-ui/core/Grid";
 import {useParams} from "react-router";
+import FollowUser from "./FollowUser";
 
 const reposQuery = gql`
 query Myrepositories($first:Int!){
@@ -38,11 +39,12 @@ function DisplayFullprofile(props) {
             <Grid container spacing={3}>
                 <Grid item xs={5}>
                     <div class="card">
-                        <img src={data.avatarUrl} width="100%"/>
+                        <img src={data.avatarUrl} alt="avatar" width="100%"/>
                         <h1> {data.name}</h1>
                         <p class="login"> {data.login}</p>
                         <p> {data.email}</p>
                         <p> {data.bio}</p>
+                        <FollowUser/>
                     </div>
                 </Grid>
                 <Grid item xs={5}>

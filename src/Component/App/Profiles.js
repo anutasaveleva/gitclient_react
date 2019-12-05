@@ -17,7 +17,7 @@ query User($login:String!){
 
 export const Profiles = ({login}) => (
     <Query query={userQuery} variables={{login}}>
-        {({data, loading}) =>{ console.log(data);
+        {({data, loading}) =>{
             return (loading ? <div>Loading ...</div> :
                 data ? <User data={data}/> :
                     <p>Nothing was found</p>);}
@@ -26,10 +26,9 @@ export const Profiles = ({login}) => (
 );
 
 const User = ({data}) => {
-    console.log(data);
     return (
         <div className="card">
-            <img src={data.user.avatarUrl} width="100%"/>
+            <img src={data.user.avatarUrl} alt="avatar" width="100%"/>
             <h1> <a href={data.user.login}>{data.user.login}</a></h1>
             <p className="login"> {data.user.name}</p>
         </div>

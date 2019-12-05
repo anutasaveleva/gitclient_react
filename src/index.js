@@ -30,15 +30,13 @@ const client = new ApolloClient({
 });
 
 ReactDOM.render(
-
     <Provider store={ourStore}>
         <ApolloProvider client={client}>
             <Header/>
             <App/>
         </ApolloProvider>
     </Provider>
-,
-    rootElement
+,rootElement
 );
 
 serviceWorker.unregister();

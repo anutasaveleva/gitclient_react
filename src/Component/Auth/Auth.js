@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
         alignItems: 'center',
     },
     form: {
-        width: '100%', // Fix IE 11 issue.
+        width: '100%',
         marginTop: theme.spacing(1),
     },
     submit: {
@@ -29,7 +29,6 @@ const LoginForm = ({stats}) => {
     const [password, setPassword] = useState('');
     const currentUser = localStorage.getItem('currentUser');
     const classes = useStyles();
-    console.log('cur user',currentUser);
     return currentUser ? (
         <Redirect to='/'/>
     ) : (
@@ -91,8 +90,6 @@ const LoginForm = ({stats}) => {
             setTimeout(() => resolve(requestOptions), 1000);
         }).then(user => {
                 localStorage.setItem('currentUser', JSON.stringify(user));
-                //currentUser.next(user);
-                console.log('in Local storage: ', localStorage.getItem('currentUser'));
                 setLogin();
                 setPassword();
                 return user;

@@ -10,20 +10,27 @@ function Search() {
         setSearchTerm(event.target.value);
     };
     return (
-        <div className="App">
-            <button className="button" onClick={()=>setFilter(!filter)}> {filter? "By users": "By repositories"} </button>
-            <input
-                type="text"
-                className="searchTerm"
-                placeholder="Search"
-                value={searchTerm}
-                onChange={handleChange}
-            />
-            {filter ?
-                <Profiles login={searchTerm}/>:
-                <Reps name={searchTerm}/>
-            }
-        </div>);
+
+        <div>
+            <div className="Search">
+                <button className="button"
+                        onClick={() => setFilter(!filter)}> {filter ? "By users" : "By repositories"} </button>
+                <input
+                    type="text"
+                    className="searchTerm"
+                    placeholder="Search"
+                    value={searchTerm}
+                    onChange={handleChange}
+                />
+            </div>
+            <div className="App">
+                {filter ?
+                    <Profiles login={searchTerm}/> :
+                    <Reps name={searchTerm}/>
+                }
+            </div>
+        </div>
+    );
 }
 
 export default Search

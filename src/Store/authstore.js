@@ -1,6 +1,4 @@
 import { createStore } from 'redux';
-
-let user = JSON.parse(localStorage.getItem('user'));
 const initialState = {
     user:{},
     loggedIn: false,
@@ -30,26 +28,6 @@ function authentication(state = initialState, action) {
 
 let store  = createStore(authentication,initialState,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
-
-export const logIn = () => {
-    const currentUser = localStorage.getItem('currentUser');
-    const requestOptions = {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        //body: JSON.stringify({username, password})
-    };
-    const promise = new Promise(function (resolve, reject) {
-        setTimeout(() => resolve(requestOptions), 1000);
-    }).then(user => {
-            localStorage.setItem('currentUser', JSON.stringify(user));
-            currentUser.next(user);
-            console.log('in Local storage: ', localStorage.getItem('currentUser'));
-            return user;
-        }
-    )/*.then((response) => {
-        dispatch({ type: "LOGIN", payload: response})
-    })*/;
-}
 
 export const logout = {type: "LOGOUT"};
 
