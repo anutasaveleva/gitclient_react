@@ -9,6 +9,7 @@ import './App.css';
 const GET_REPOSITORIES_OF_ORGANIZATION = gql`
   query Reps($name: String!) {
     organization(login: $name) {
+    login
       repositories(first: 10) {
         edges {
           node {
@@ -29,7 +30,7 @@ const Reps = ({name}) => (
     <Query query={GET_REPOSITORIES_OF_ORGANIZATION} variables={{name}}>
         {({data, loading}) =>
             loading ? <div>Loading ...</div> :
-                data ? <Repositories repositories={data.organization.repositories}/> :
+                data ? <Repositories repositories={data.organization.repositories} login={data.organization.login}/> :
                 <p>Nothing was found</p>
         }
     </Query>
@@ -43,14 +44,16 @@ export class Repositories extends React.Component {
     render() {
         return (
             <RepositoryList
+                login={this.props.login}
                 repositories={this.props.repositories}
                 selectedRepositoryIds={this.state.selectedRepositoryIds}
             />
         );
     }
+
 }
 
-const RepositoryList = ({
+const RepositoryList = ({login,
                             repositories,
                             selectedRepositoryIds,
                         }) => (
@@ -66,12 +69,14 @@ const RepositoryList = ({
             return (<div>
                     {node.isPrivate && <LockIcon/> }
                     {!node.isPrivate && <LockOpenIcon/> }
-                <a href={'repository/'+node.name} >{node.name}</a>
+                <a href={login+'/repository/'+node.name} >{node.name}</a>
                     {!node.viewerHasStarred && <Star id={node.id} />}
                     { node.viewerHasStarred && <RemoveStar id={node.id}/>}
                 </div>
             );
-        })}
+        }
+        )
+        }
     </ul>
 );
 export default Reps;

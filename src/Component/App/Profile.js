@@ -4,6 +4,7 @@ import {Query} from 'react-apollo'
 import {Repositories} from "./Reps";
 import './App.css';
 import Grid from "@material-ui/core/Grid";
+import {useParams} from "react-router";
 
 const reposQuery = gql`
 query Myrepositories($first:Int!){
@@ -34,21 +35,21 @@ query Myrepositories($first:Int!){
 function DisplayFullprofile(props) {
     const {data} = props
     return (<div>
-        <Grid container spacing={3}>
-            <Grid item xs={5}>
+            <Grid container spacing={3}>
+                <Grid item xs={5}>
                     <div class="card">
-                        <img src={data.viewer.avatarUrl} width="100%"/>
-                        <h1> {data.viewer.name}</h1>
-                        <p class="login"> {data.viewer.login}</p>
-                        <p> {data.viewer.email}</p>
-                        <p> {data.viewer.bio}</p>
+                        <img src={data.avatarUrl} width="100%"/>
+                        <h1> {data.name}</h1>
+                        <p class="login"> {data.login}</p>
+                        <p> {data.email}</p>
+                        <p> {data.bio}</p>
                     </div>
-            </Grid>
-            <Grid item xs={5}>
+                </Grid>
+                <Grid item xs={5}>
                     <h2>Repositories</h2>
-                    <Repositories repositories={data.viewer.repositories}/>
+                    <Repositories repositories={data.repositories} login={data.login}/>
+                </Grid>
             </Grid>
-        </Grid>
         </div>
     )
 }
@@ -62,7 +63,48 @@ function Myrepositories() {
                     .viewer.repositories
                     .edges.length;
                 return (
-                    <DisplayFullprofile data={data}/>)
+                    <DisplayFullprofile data={data.viewer}/>)
+            }}
+        </Query>
+    );
+}
+
+const userQuery = gql`
+query Userrepositories($login:String!){
+  user(login: $login) {
+    avatarUrl
+    bio
+    email
+    login
+    name
+    repositories(first: 10) {
+      edges {
+        node {
+          id
+          name
+          stargazers {
+            totalCount
+          }
+          isPrivate
+        }
+      }
+    }
+  }
+}
+`;
+
+export function UserRepositories() {
+    let {login} = useParams();
+    return (
+        <Query query={userQuery} variables={{login}}>
+            {({data, loading}) => {
+                console.log(data);
+                if (loading) return <p>loading...</p>;
+                let current = data
+                    .user.repositories
+                    .edges.length;
+                return (
+                    <DisplayFullprofile data={data.user}/>)
             }}
         </Query>
     );

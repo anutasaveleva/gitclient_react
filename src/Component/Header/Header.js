@@ -4,7 +4,6 @@ import {Redirect} from "react-router-dom";
 import Search from "../App/Search";
 import {SButton} from "../Auth/style";
 import {AccountCircle} from "@material-ui/icons";
-import './Header.css';
 
 export function Header () {
     const currentUser = localStorage.getItem('currentUser');
@@ -26,7 +25,14 @@ export function Header () {
                         <AccountCircle /></a>
                     </IconButton>
                 </div>
+                {
+                    currentUser && <SButton onClick={logOut}>Log out</SButton>
+                }
             </Toolbar>
         </AppBar>
-    )
+    );
+    function logOut() {
+        localStorage.removeItem('currentUser');
+        window.location.reload(true);
+    }
 }

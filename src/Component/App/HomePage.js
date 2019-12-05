@@ -13,13 +13,7 @@ return (
             <Search class="searchTerm"/>
         </div>
     </div>
-            <SButton onClick={logOut}>Log out</SButton>
         </div>) : <Redirect to='/auth'/>
 )
 };
 
-
-function logOut() {
-    localStorage.removeItem('currentUser');
-    window.location.reload(true);
-}
