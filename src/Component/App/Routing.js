@@ -11,17 +11,6 @@ import Profile from "./Profile";
 function Routing() {
     return (
         <Router>
-            {/*<ul>*/}
-            {/*    <li>*/}
-            {/*        <Link to="/auth">Log In</Link>*/}
-            {/*    </li>*/}
-            {/*    <li>*/}
-            {/*        <Link to="/repositories">Repositories</Link>*/}
-            {/*    </li>*/}
-            {/*    <li>*/}
-            {/*        <Link to="/myprofile">Profile</Link>*/}
-            {/*    </li>*/}
-            {/*</ul>*/}
             <Switch>
                 {<Route path="/myprofile" component={Profile} />}
                 {/*{<Route path="repository/:id" component={Repository} />}*/}
