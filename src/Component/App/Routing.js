@@ -4,7 +4,7 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link
+    Link, Redirect
 } from "react-router-dom";
 import HomePage from "./HomePage";
 import Profile from "./Profile";
@@ -27,6 +27,7 @@ function Routing() {
                 {/*{<Route path="repository/:id" component={Repository} />}*/}
                 {<Route path="/auth" component={Auth}/>}
                 <Route path="/" component={HomePage}/>
+                <Redirect to="/"/>
             </Switch>
         </Router>
     )
