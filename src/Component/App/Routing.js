@@ -8,12 +8,13 @@ import {
 } from "react-router-dom";
 import HomePage from "./HomePage";
 import Profile from "./Profile";
+import {Repository} from "./Repository";
 function Routing() {
     return (
         <Router>
             <Switch>
                 {<Route path="/myprofile" component={Profile} />}
-                {/*{<Route path="repository/:id" component={Repository} />}*/}
+                {<Route path="/repository/:name" component={Repository} />}
                 {<Route path="/auth" component={Auth}/>}
                 <Route path="/" component={HomePage}/>
                 <Redirect to="/"/>

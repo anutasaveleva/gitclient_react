@@ -11,10 +11,10 @@ function Search() {
     };
     return (
         <div className="App">
-            <button class="button" onClick={()=>setFilter(!filter)}> {filter? "By users": "By repositories"} </button>
+            <button className="button" onClick={()=>setFilter(!filter)}> {filter? "By users": "By repositories"} </button>
             <input
                 type="text"
-                class="searchTerm"
+                className="searchTerm"
                 placeholder="Search"
                 value={searchTerm}
                 onChange={handleChange}

@@ -22,6 +22,7 @@ query Myrepositories($first:Int!){
                         totalCount
                     }
                     viewerHasStarred
+                    isPrivate
                 }
             }
         }
