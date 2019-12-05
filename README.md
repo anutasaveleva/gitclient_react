@@ -1,14 +1,13 @@
-# Github client
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-It allows you to use some GIT management tools.
-
+# [Github client](https://anutasaveleva.github.io/gitclient_react/)
 
 ### Current features
-* Logging in and out
-* Star repositories
-* Go to GitHub to see the selected repository
-
+<ol> 
+<li>Logging in and out</li>
+<li> Starring and unstarring repositories</li>
+<li> Searching by users and repositories</li>
+<li> Go to GitHub to see the selected repository</li>
+<li>See information about user</li>
+</ol>
 
 ### How to use
 It is possible to clone repository or download it as ZIP.
