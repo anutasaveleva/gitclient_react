@@ -1,7 +1,12 @@
 .App {
   text-align: center;
 }
-
+a:visited{
+  color:cornflowerblue;
+}
+a:any-link{
+  color:cornflowerblue;
+}
 .App-logo {
   height: 40vmin;
 }

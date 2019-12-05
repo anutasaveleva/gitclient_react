@@ -5,6 +5,7 @@ import Star from "./AddStar";
 import RemoveStar from "./RemoveStar";
 import LockIcon from '@material-ui/icons/Lock';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
+import './App.css';
 const GET_REPOSITORIES_OF_ORGANIZATION = gql`
   query Reps($name: String!) {
     organization(login: $name) {
@@ -65,7 +66,7 @@ const RepositoryList = ({
             return (<div>
                     {node.isPrivate && <LockIcon/> }
                     {!node.isPrivate && <LockOpenIcon/> }
-                <a href={'repository/'+node.name}>{node.name}</a>
+                <a href={'repository/'+node.name} >{node.name}</a>
                     {!node.viewerHasStarred && <Star id={node.id} />}
                     { node.viewerHasStarred && <RemoveStar id={node.id}/>}
                 </div>
