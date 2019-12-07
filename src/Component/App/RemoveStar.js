@@ -18,7 +18,7 @@ mutation RemoveStar($id:ID!){
 const RemoveStar = ({id}) => (
     <Mutation mutation={removeStarquery} variables={{id}}>
         {removeStar => (
-            <StarIcon className="hover" color="error" onClick={removeStar}>
+            <StarIcon color="secondary" onClick={removeStar} className="hover" >
                 removestar
             </StarIcon>
         )}

@@ -5,11 +5,14 @@ import {Repositories} from "./Reps";
 import './App.css';
 import Grid from "@material-ui/core/Grid";
 import {useParams} from "react-router";
-import FollowUser from "./FollowUser";
+import {FollowUser, UnfollowUser} from "./FollowUser";
 
 const reposQuery = gql`
 query Myrepositories($first:Int!){
     viewer {
+        id
+        isViewer
+        viewerIsFollowing
         name
         login
         avatarUrl
@@ -45,7 +48,8 @@ function DisplayFullprofile(props) {
                         <p className="login"> {data.login}</p>
                         <p> {data.email}</p>
                         <p> {data.bio}</p>
-                        <FollowUser/>
+                            {!data.isViewer && !data.viewerIsFollowing && <FollowUser id={data.id}/>}
+                            {!data.isViewer && data.viewerIsFollowing && <UnfollowUser id={data.id}/>}
                         </div>
                     </div>
                 </Grid>
@@ -73,6 +77,9 @@ function Myrepositories() {
 const userQuery = gql`
 query Userrepositories($login:String!){
   user(login: $login) {
+    id
+    isViewer
+    viewerIsFollowing
     avatarUrl
     bio
     email
@@ -86,6 +93,7 @@ query Userrepositories($login:String!){
           stargazers {
             totalCount
           }
+          viewerHasStarred
           isPrivate
         }
       }
@@ -99,7 +107,6 @@ export function UserRepositories() {
     return (
         <Query query={userQuery} variables={{login}}>
             {({data, loading}) => {
-                console.log(data);
                 if (loading) return <p>loading...</p>;
                 return (
                     <DisplayFullprofile data={data.user}/>)

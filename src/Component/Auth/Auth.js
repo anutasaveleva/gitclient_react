@@ -66,7 +66,7 @@ const LoginForm = ({stats}) => {
                                     onChange={(event) => setPassword(event.target.value)}
                                 />
                                 <Button
-                                    type="primary"
+                                    type="button"
                                     fullWidth
                                     variant="contained"
                                     color="primary"

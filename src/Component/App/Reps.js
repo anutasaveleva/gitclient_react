@@ -6,6 +6,7 @@ import RemoveStar from "./RemoveStar";
 import LockIcon from '@material-ui/icons/Lock';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
 import './App.css';
+
 const GET_REPOSITORIES_OF_ORGANIZATION = gql`
   query Reps($quer: String!) {
     search(query: $quer, type: REPOSITORY, first: 10) {
@@ -32,8 +33,8 @@ const GET_REPOSITORIES_OF_ORGANIZATION = gql`
 const Reps = ({quer}) => (
     <Query query={GET_REPOSITORIES_OF_ORGANIZATION} variables={{quer}}>
         {({data, loading}) => {
-           return(loading ? <div>Loading ...</div> :
-                data ? <p><Repositories repositories={data.search} /></p> :
+            return (loading ? <div>Loading ...</div> :
+                data ? <p><Repositories repositories={data.search}/></p> :
                     <p>Nothing was found</p>);
         }
         }
@@ -57,30 +58,30 @@ export class Repositories extends React.Component {
 
 }
 
-const RepositoryList = ({login,
+const RepositoryList = ({
+                            login,
                             repositories,
                             selectedRepositoryIds,
                         }) => (
     <ul>
         {repositories.edges.map(({node}) => {
-            const isSelected = selectedRepositoryIds.includes(node.id);
+                const isSelected = selectedRepositoryIds.includes(node.id);
 
-            const rowClassName = ['row'];
+                const rowClassName = ['row'];
 
-            if (isSelected) {
-                rowClassName.push('row_selected');
+                if (isSelected) {
+                    rowClassName.push('row_selected');
+                }
+                login = (typeof node.owner != 'undefined') ? node.owner.login : login;
+                return (<div className="RepositoryItem" key={node.id}>
+                        {node.isPrivate && <LockIcon/>}
+                        {!node.isPrivate && <LockOpenIcon/>}
+                        <a href={login + '/repository/' + node.name}>{node.name}</a>
+                        {!node.viewerHasStarred && <Star className="hover" id={node.id}/>}
+                        {node.viewerHasStarred && <RemoveStar id={node.id}/>}
+                    </div>
+                );
             }
-            login = (typeof node.owner != 'undefined') ? node.owner.login : login;
-            return (<div className="RepositoryItem">
-
-                    {node.isPrivate && <LockIcon/> }
-                    {!node.isPrivate && <LockOpenIcon/> }
-                <a href={login+'/repository/'+node.name} >{node.name}</a>
-                    {!node.viewerHasStarred && <Star className="hover" id={node.id} />}
-                    { node.viewerHasStarred && <RemoveStar id={node.id}/>}
-                </div>
-            );
-        }
         )
         }
     </ul>
