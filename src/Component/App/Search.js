@@ -22,13 +22,13 @@ function Search() {
                     value={searchTerm}
                     onChange={handleChange}
                 />
-            </div>
+
             <div className="App">
                 {filter ?
                     <Profiles login={searchTerm}/> :
                     <Reps quer={searchTerm}/>
                 }
-            </div>
+            </div></div>
         </div>
     );
 }

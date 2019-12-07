@@ -7,18 +7,21 @@ import LockIcon from '@material-ui/icons/Lock';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
 import './App.css';
 const GET_REPOSITORIES_OF_ORGANIZATION = gql`
-  query Reps($name: String!) {
-    organization(login: $name) {
-    login
-      repositories(first: 10) {
-        edges {
-          node {
+  query Reps($quer: String!) {
+    search(query: $quer, type: REPOSITORY, first: 10) {
+      edges {
+        node {
+          ... on Repository {
             id
             name
-            url
             viewerHasStarred
-            isArchived
+            url
             isPrivate
+            isArchived
+            owner {
+            login
+            avatarUrl
+          }
           }
         }
       }
@@ -26,12 +29,13 @@ const GET_REPOSITORIES_OF_ORGANIZATION = gql`
   }
 `;
 
-const Reps = ({name}) => (
-    <Query query={GET_REPOSITORIES_OF_ORGANIZATION} variables={{name}}>
-        {({data, loading}) =>
-            loading ? <div>Loading ...</div> :
-                data ? <Repositories repositories={data.organization.repositories} login={data.organization.login}/> :
-                <p>Nothing was found</p>
+const Reps = ({quer}) => (
+    <Query query={GET_REPOSITORIES_OF_ORGANIZATION} variables={{quer}}>
+        {({data, loading}) => { console.log(data);
+           return(loading ? <div>Loading ...</div> :
+                data ? <p><Repositories repositories={data.search} /></p> :
+                    <p>Nothing was found</p>);
+        }
         }
     </Query>
 );
@@ -66,6 +70,7 @@ const RepositoryList = ({login,
             if (isSelected) {
                 rowClassName.push('row_selected');
             }
+            login = (typeof node.owner != 'undefined') ? node.owner.login : login;
             return (<div className="RepositoryItem">
 
                     {node.isPrivate && <LockIcon/> }

@@ -32,7 +32,6 @@ a:any-link{
 
 .Search {
   width: 100%;
-  position: sticky;
   display: flex;
 }
 
@@ -52,6 +51,7 @@ a:any-link{
   -webkit-transition-duration: 0.4s;
   background-color: #00B4CC;
   transition-duration: 0.4s;
+
 }
 
 .button:hover {
