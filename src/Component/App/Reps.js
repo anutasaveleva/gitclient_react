@@ -31,7 +31,7 @@ const GET_REPOSITORIES_OF_ORGANIZATION = gql`
 
 const Reps = ({quer}) => (
     <Query query={GET_REPOSITORIES_OF_ORGANIZATION} variables={{quer}}>
-        {({data, loading}) => { console.log(data);
+        {({data, loading}) => {
            return(loading ? <div>Loading ...</div> :
                 data ? <p><Repositories repositories={data.search} /></p> :
                     <p>Nothing was found</p>);

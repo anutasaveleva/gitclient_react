@@ -36,18 +36,20 @@ query Myrepositories($first:Int!){
 function DisplayFullprofile(props) {
     const {data} = props
     return (<div>
-            <Grid container spacing={3}>
-                <Grid item xs={5}>
-                    <div class="card">
+            <Grid container spacing={0} justify="center">
+                <Grid item xs={3}>
+                    <div className="card">
+                        <div className="UserCard">
                         <img src={data.avatarUrl} alt="avatar" width="100%"/>
                         <h1> {data.name}</h1>
-                        <p class="login"> {data.login}</p>
+                        <p className="login"> {data.login}</p>
                         <p> {data.email}</p>
                         <p> {data.bio}</p>
                         <FollowUser/>
+                        </div>
                     </div>
                 </Grid>
-                <Grid item xs={5}>
+                <Grid item xs={4}>
                     <h2>Repositories</h2>
                     <Repositories repositories={data.repositories} login={data.login}/>
                 </Grid>
