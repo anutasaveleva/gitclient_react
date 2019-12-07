@@ -17,7 +17,7 @@ const STAR_REPOSITORY = gql`
 const Star = ({id}) => (
     <Mutation mutation={STAR_REPOSITORY} variables={{id}}>
         {starRepository => (
-            <StarIcon onClick={starRepository}>
+            <StarIcon className="hover" onClick={starRepository}>
                 star
             </StarIcon>
         )}

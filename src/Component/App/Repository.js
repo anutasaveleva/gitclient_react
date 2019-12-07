@@ -28,17 +28,16 @@ const GET_REPOSITORY = gql`
 function DisplayRepos(props) {
     const {data} = props;
     console.log(data);
-    return (<div>
-                    <div class="card">
+    return (<div className="card">
+        <div className="RepositoryCard">
                         {data.repository.isPrivate && <LockIcon/> }
                         {!data.repository.isPrivate && <LockOpenIcon/> }
                         {data.repository.isArchived && <ArchiveIcon/> }
                         <p> <a href={data.repository.url}> Link on GitHub</a></p>
-                        <p class="login"> {data.repository.stargazers.totalCount} stars</p>
+                        <p className="login"> {data.repository.stargazers.totalCount} stars</p>
                         <p> Language:{data.repository.primaryLanguage && data.repository.primaryLanguage.name}</p>
                         {data.repository.description}
-                        </div>
-        </div>
+        </div></div>
     )
 }
 export const Repository = () => {

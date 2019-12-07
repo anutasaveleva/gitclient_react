@@ -32,10 +32,13 @@ a:any-link{
 
 .Search {
   width: 100%;
-  position: fixed;
+  position: sticky;
   display: flex;
 }
 
+.hover:hover {
+  cursor: pointer;
+}
 .searchTerm {
   width: 100%;
   border: 3px solid #00B4CC;
@@ -82,12 +85,25 @@ a:any-link{
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 300px;
-  margin: auto;
+  margin: 20px;
+    margin-left: 100px;
   text-align: center;
   font-family: arial;
+  justify-content: center;
 }
+
 
 .login {
   color: grey;
   font-size: 18px;
+}
+
+.RepositoryItem {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+}
+.h2 {
+    justify-content: center;
+    font-family: arial;
 }

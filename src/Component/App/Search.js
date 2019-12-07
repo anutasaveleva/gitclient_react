@@ -26,7 +26,7 @@ function Search() {
             <div className="App">
                 {filter ?
                     <Profiles login={searchTerm}/> :
-                    <Reps name={searchTerm}/>
+                    <Reps quer={searchTerm}/>
                 }
             </div>
         </div>

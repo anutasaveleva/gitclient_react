@@ -66,11 +66,12 @@ const RepositoryList = ({login,
             if (isSelected) {
                 rowClassName.push('row_selected');
             }
-            return (<div>
+            return (<div className="RepositoryItem">
+
                     {node.isPrivate && <LockIcon/> }
                     {!node.isPrivate && <LockOpenIcon/> }
                 <a href={login+'/repository/'+node.name} >{node.name}</a>
-                    {!node.viewerHasStarred && <Star id={node.id} />}
+                    {!node.viewerHasStarred && <Star className="hover" id={node.id} />}
                     { node.viewerHasStarred && <RemoveStar id={node.id}/>}
                 </div>
             );
