@@ -8,13 +8,14 @@ import {
 import HomePage from "./HomePage";
 import Profile, {UserRepositories} from "./Profile";
 import {Repository} from "./Repository";
+
 function Routing() {
     return (
         <Router>
             <Switch>
-                {<Route path="/myprofile" component={Profile} />}
+                {<Route path="/myprofile" component={Profile}/>}
                 {<Route path="/auth" component={Auth}/>}
-                {<Route path="/:login/repository/:name" component={Repository} />}
+                {<Route path="/:login/repository/:name" component={Repository}/>}
                 {<Route path="/:login/" component={UserRepositories}/>}
                 <Route path="/" component={HomePage}/>
                 <Redirect to="/"/>
@@ -22,4 +23,5 @@ function Routing() {
         </Router>
     )
 }
+
 export default Routing;

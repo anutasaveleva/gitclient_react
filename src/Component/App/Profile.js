@@ -43,11 +43,11 @@ function DisplayFullprofile(props) {
                 <Grid item xs={3}>
                     <div className="card">
                         <div className="UserCard">
-                        <img src={data.avatarUrl} alt="avatar" width="100%"/>
-                        <h1> {data.name}</h1>
-                        <p className="login"> {data.login}</p>
-                        <p> {data.email}</p>
-                        <p> {data.bio}</p>
+                            <img src={data.avatarUrl} alt="avatar" width="100%"/>
+                            <h1> {data.name}</h1>
+                            <p className="login"> {data.login}</p>
+                            <p> {data.email}</p>
+                            <p> {data.bio}</p>
                             {!data.isViewer && !data.viewerIsFollowing && <FollowUser id={data.id}/>}
                             {!data.isViewer && data.viewerIsFollowing && <UnfollowUser id={data.id}/>}
                         </div>

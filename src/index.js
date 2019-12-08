@@ -19,7 +19,7 @@ const httpLink = new HttpLink({
     uri: GITHUB_BASE_URL,
     headers: {
         authorization: `Bearer ${
-            process.env.REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN
+            localStorage.getItem('currentUser')
         }`,
     },
 });
