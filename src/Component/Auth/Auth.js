@@ -69,7 +69,6 @@ const LoginForm = ({stats}) => {
         localStorage.setItem('token', password);
         setPassword();
         updateToken(localStorage.getItem('token'));
-        console.log(localStorage.getItem('token'));
         window.location.reload(true);
     }
 
