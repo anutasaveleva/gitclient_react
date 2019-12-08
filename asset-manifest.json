@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/gitclient_react/static/css/main.dcb73b24.chunk.css",
-    "main.js": "/gitclient_react/static/js/main.95e61e51.chunk.js",
-    "main.js.map": "/gitclient_react/static/js/main.95e61e51.chunk.js.map",
+    "main.css": "/gitclient_react/static/css/main.1d5ef701.chunk.css",
+    "main.js": "/gitclient_react/static/js/main.e5d8035b.chunk.js",
+    "main.js.map": "/gitclient_react/static/js/main.e5d8035b.chunk.js.map",
     "runtime-main.js": "/gitclient_react/static/js/runtime-main.f1ed66e6.js",
     "runtime-main.js.map": "/gitclient_react/static/js/runtime-main.f1ed66e6.js.map",
-    "static/js/2.44ba4b2a.chunk.js": "/gitclient_react/static/js/2.44ba4b2a.chunk.js",
-    "static/js/2.44ba4b2a.chunk.js.map": "/gitclient_react/static/js/2.44ba4b2a.chunk.js.map",
+    "static/js/2.e7cd1480.chunk.js": "/gitclient_react/static/js/2.e7cd1480.chunk.js",
+    "static/js/2.e7cd1480.chunk.js.map": "/gitclient_react/static/js/2.e7cd1480.chunk.js.map",
     "index.html": "/gitclient_react/index.html",
-    "precache-manifest.2787eb4f27ed3f8da9caa26c0de5e3ff.js": "/gitclient_react/precache-manifest.2787eb4f27ed3f8da9caa26c0de5e3ff.js",
+    "precache-manifest.e9fe3608df3d541b01c0530bc342117c.js": "/gitclient_react/precache-manifest.e9fe3608df3d541b01c0530bc342117c.js",
     "service-worker.js": "/gitclient_react/service-worker.js",
-    "static/css/main.dcb73b24.chunk.css.map": "/gitclient_react/static/css/main.dcb73b24.chunk.css.map"
+    "static/css/main.1d5ef701.chunk.css.map": "/gitclient_react/static/css/main.1d5ef701.chunk.css.map"
   },
   "entrypoints": [
     "static/js/runtime-main.f1ed66e6.js",
-    "static/js/2.44ba4b2a.chunk.js",
-    "static/css/main.dcb73b24.chunk.css",
-    "static/js/main.95e61e51.chunk.js"
+    "static/js/2.e7cd1480.chunk.js",
+    "static/css/main.1d5ef701.chunk.css",
+    "static/js/main.e5d8035b.chunk.js"
   ]
 }
