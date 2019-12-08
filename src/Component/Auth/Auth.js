@@ -5,7 +5,8 @@ import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
+
 const useStyles = makeStyles(theme => ({
     paper: {
         marginTop: theme.spacing(8),
@@ -23,80 +24,53 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-
 const LoginForm = ({stats}) => {
-    const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
-    const currentUser = localStorage.getItem('currentUser');
+    let [token, updateToken] = useState(localStorage.getItem('token'));
     const classes = useStyles();
-    return currentUser ? (
+    return token ? (
         <Redirect to='/'/>
     ) : (
-                <div>
-                    <Container component="main" maxWidth="xs">
-                        <CssBaseline />
-                        <div className={classes.paper}>
-                            <Typography component="h1" variant="h5">
-                                Sign in
-                            </Typography>
-                                <TextField
-                                    variant="outlined"
-                                    margin="normal"
-                                    required
-                                    fullWidth
-                                    id="email"
-                                    label="Email Address"
-                                    name="email"
-                                    autoComplete="email"
-                                    autoFocus
-                                    value={login}
-                                    onChange={(event) => setLogin(event.target.value)}
-                                />
-                                <TextField
-                                    variant="outlined"
-                                    margin="normal"
-                                    required
-                                    fullWidth
-                                    name="password"
-                                    label="Password"
-                                    type="password"
-                                    id="password"
-                                    autoComplete="current-password"
-                                    value={password}
-                                    onChange={(event) => setPassword(event.target.value)}
-                                />
-                                <Button
-                                    type="button"
-                                    fullWidth
-                                    variant="contained"
-                                    color="primary"
-                                    className={classes.submit}
-                                onClick={loginFor}>
-                                    Sign In
-                                </Button>
-                        </div>
-                    </Container>
+        <div>
+            <Container component="main" maxWidth="xs">
+                <CssBaseline/>
+                <div className={classes.paper}>
+                    <Typography component="h1" variant="h5">
+                        Sign in
+                    </Typography>
+                    <TextField
+                        variant="outlined"
+                        margin="normal"
+                        required
+                        fullWidth
+                        name="password"
+                        label="Your personal GitHub token"
+                        type="password"
+                        id="password"
+                        autoComplete="current-password"
+                        value={password}
+                        onChange={(event) => setPassword(event.target.value)}
+                    />
+                    <Button
+                        type="button"
+                        fullWidth
+                        variant="contained"
+                        color="primary"
+                        className={classes.submit}
+                        onClick={loginFor}>
+                        Sign In
+                    </Button>
                 </div>
+            </Container>
+        </div>
     );
 
     function loginFor() {
-
-        const requestOptions = {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({login, password})
-        };
-        const promise = new Promise(function (resolve, reject) {
-            setTimeout(() => resolve(requestOptions), 1000);
-        }).then(user => {
-                localStorage.setItem('currentUser', JSON.stringify(user));
-                setLogin();
-                setPassword();
-                return user;
-            }
-        );
-
-        return promise;
+        localStorage.setItem('token', password);
+        setPassword();
+        updateToken(localStorage.getItem('token'));
+        console.log(localStorage.getItem('token'));
+        window.location.reload(true);
     }
 
 

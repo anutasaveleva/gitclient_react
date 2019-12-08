@@ -1,17 +1,17 @@
-import { AppBar, Toolbar,IconButton , Typography} from '@material-ui/core';
+import {AppBar, Toolbar, IconButton, Typography} from '@material-ui/core';
 import React from "react";
 import {SButton} from "../Auth/style";
 import {AccountCircle} from "@material-ui/icons";
 import {Redirect} from "react-router-dom";
 
-export function Header () {
-    const currentUser = localStorage.getItem('currentUser');
+export function Header() {
+    const currentUser = localStorage.getItem('token');
     return (
         <AppBar position="static">
             <Toolbar>
                 <Typography variant="h6">
-                    <a href='/' >
-                    GitHub Client
+                    <a href='/'>
+                        GitHub Client
                     </a>
                 </Typography>
                 <div>
@@ -21,7 +21,7 @@ export function Header () {
                         aria-haspopup="true"
 
                         color="inherit"><a href='/myprofile'>
-                        <AccountCircle /></a>
+                        <AccountCircle/></a>
                     </IconButton>
                 </div>
                 {
@@ -30,10 +30,11 @@ export function Header () {
             </Toolbar>
         </AppBar>
     );
+
     function logOut() {
-        localStorage.removeItem('currentUser');
+        localStorage.removeItem('token');
         window.location.reload(true);
-        return(
+        return (
             <Redirect to="/auth"/>
         );
 

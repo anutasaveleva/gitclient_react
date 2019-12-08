@@ -34,7 +34,7 @@ const Reps = ({quer}) => (
     <Query query={GET_REPOSITORIES_OF_ORGANIZATION} variables={{quer}}>
         {({data, loading}) => {
             return (loading ? <div>Loading ...</div> :
-                data ? <p><Repositories repositories={data.search}/></p> :
+                data ? <div><Repositories repositories={data.search}/></div> :
                     <p>Nothing was found</p>);
         }
         }

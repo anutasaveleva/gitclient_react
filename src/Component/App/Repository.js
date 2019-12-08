@@ -32,7 +32,6 @@ const GET_REPOSITORY = gql`
 
 function DisplayRepos(props) {
     const {data} = props;
-    console.log(data);
     return (<div className="card">
             <div className="RepositoryCard">
                 <p className="login"> {data.repository.owner.login}</p>

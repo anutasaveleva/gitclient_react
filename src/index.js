@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './Controllers/App/App';
-import { Provider } from 'react-redux';
+import {Provider} from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import ourStore from './Store/authstore';
-import { ApolloProvider } from 'react-apollo';
-import { ApolloClient } from 'apollo-client';
-import { HttpLink } from 'apollo-link-http';
-import { InMemoryCache } from 'apollo-cache-inmemory';
+import {ApolloProvider} from 'react-apollo';
+import {ApolloClient} from 'apollo-client';
+import {HttpLink} from 'apollo-link-http';
+import {InMemoryCache} from 'apollo-cache-inmemory';
 import {Header} from "./Component/Header/Header";
 
 const cache = new InMemoryCache();
@@ -19,7 +19,7 @@ const httpLink = new HttpLink({
     uri: GITHUB_BASE_URL,
     headers: {
         authorization: `Bearer ${
-            localStorage.getItem('currentUser')
+            localStorage.getItem('token')
         }`,
     },
 });
@@ -36,7 +36,7 @@ ReactDOM.render(
             <App/>
         </ApolloProvider>
     </Provider>
-,rootElement
+    , rootElement
 );
 
 serviceWorker.unregister();

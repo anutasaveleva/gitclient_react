@@ -10,15 +10,16 @@ import Profile, {UserRepositories} from "./Profile";
 import {Repository} from "./Repository";
 
 function Routing() {
+    const currentUser = localStorage.getItem('token');
     return (
         <Router>
             <Switch>
-                {<Route path="/myprofile" component={Profile}/>}
+                {currentUser && <Route path="/myprofile" component={Profile}/>}
                 {<Route path="/auth" component={Auth}/>}
-                {<Route path="/:login/repository/:name" component={Repository}/>}
-                {<Route path="/:login/" component={UserRepositories}/>}
-                <Route path="/" component={HomePage}/>
-                <Redirect to="/"/>
+                {currentUser && <Route path="/:login/repository/:name" component={Repository}/>}
+                {currentUser && <Route path="/:login/" component={UserRepositories}/>}
+                {currentUser && <Route path="/" component={HomePage}/>}
+                <Redirect to="/auth"/>
             </Switch>
         </Router>
     )
