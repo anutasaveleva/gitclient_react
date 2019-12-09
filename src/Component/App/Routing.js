@@ -11,15 +11,16 @@ import {Repository} from "./Repository";
 
 function Routing() {
     const currentUser = localStorage.getItem('token');
+   const path  = 'https://anutasaveleva.github.io/gitclient_react';
     return (
         <Router>
             <Switch>
-                {currentUser && <Route path="/myprofile" component={Profile}/>}
-                {<Route path="/auth" component={Auth}/>}
-                {currentUser && <Route path="/:login/repository/:name" component={Repository}/>}
-                {currentUser && <Route path="/:login/" component={UserRepositories}/>}
-                {currentUser && <Route path="/" component={HomePage}/>}
-                <Redirect to="/auth"/>
+                {currentUser && <Route path={`${path}/myprofile`} component={Profile}/>}
+                {<Route path={`${path}/auth`} component={Auth}/>}
+                {currentUser && <Route path={`${path}/:login/repository/:name`} component={Repository}/>}
+                {currentUser && <Route path={`${path}/:login/`} component={UserRepositories}/>}
+                {currentUser && <Route path={`${path}`} component={HomePage}/>}
+                <Redirect to={`${path}/auth`}/>
             </Switch>
         </Router>
     )
