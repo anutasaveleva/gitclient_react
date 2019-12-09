@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/gitclient_react/static/css/main.1d5ef701.chunk.css",
-    "main.js": "/gitclient_react/static/js/main.5ca2d95f.chunk.js",
-    "main.js.map": "/gitclient_react/static/js/main.5ca2d95f.chunk.js.map",
+    "main.js": "/gitclient_react/static/js/main.50e60744.chunk.js",
+    "main.js.map": "/gitclient_react/static/js/main.50e60744.chunk.js.map",
     "runtime-main.js": "/gitclient_react/static/js/runtime-main.f1ed66e6.js",
     "runtime-main.js.map": "/gitclient_react/static/js/runtime-main.f1ed66e6.js.map",
     "static/js/2.e7cd1480.chunk.js": "/gitclient_react/static/js/2.e7cd1480.chunk.js",
     "static/js/2.e7cd1480.chunk.js.map": "/gitclient_react/static/js/2.e7cd1480.chunk.js.map",
     "index.html": "/gitclient_react/index.html",
-    "precache-manifest.05c1df5e7868e96f287438a5c8f9d59c.js": "/gitclient_react/precache-manifest.05c1df5e7868e96f287438a5c8f9d59c.js",
+    "precache-manifest.6ee624255f0a38b384d71382c3fd66d1.js": "/gitclient_react/precache-manifest.6ee624255f0a38b384d71382c3fd66d1.js",
     "service-worker.js": "/gitclient_react/service-worker.js",
     "static/css/main.1d5ef701.chunk.css.map": "/gitclient_react/static/css/main.1d5ef701.chunk.css.map"
   },
@@ -16,6 +16,6 @@
     "static/js/runtime-main.f1ed66e6.js",
     "static/js/2.e7cd1480.chunk.js",
     "static/css/main.1d5ef701.chunk.css",
-    "static/js/main.5ca2d95f.chunk.js"
+    "static/js/main.50e60744.chunk.js"
   ]
 }
