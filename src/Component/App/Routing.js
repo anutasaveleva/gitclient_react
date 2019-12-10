@@ -3,26 +3,27 @@ import Auth from "../Auth/Auth";
 import {
     BrowserRouter as Router,
     Switch,
-    Route, Redirect, useRouteMatch
+    Route, Redirect
 } from "react-router-dom";
 import HomePage from "./HomePage";
 import Profile, {UserRepositories} from "./Profile";
 import {Repository} from "./Repository";
 
+
 function Routing() {
     const currentUser = localStorage.getItem('token');
-   // const {path} = useRouteMatch();
     return (
-        <Router>
+        <Router basename="https://anutasaveleva.github.io/gitclient_react">
             <Switch>
                 {currentUser && <Route path="/myprofile" component={Profile}/>}
-                {<Route path="/auth" component={Auth}/>}
+                {<Route exact path="/auth" component={Auth}/>}
                 {currentUser && <Route path="/:login/repository/:name" component={Repository}/>}
                 {currentUser && <Route path="/:login/" component={UserRepositories}/>}
-                {currentUser && <Route path="/" component={HomePage}/>}
+                {currentUser && <Route exact path="/"  component={HomePage}/>}
                 <Redirect to="/auth"/>
             </Switch>
         </Router>
+
     )
 }
 
