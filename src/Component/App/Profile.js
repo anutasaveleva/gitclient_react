@@ -6,6 +6,7 @@ import './App.css';
 import Grid from "@material-ui/core/Grid";
 import {useParams} from "react-router";
 import {FollowUser, UnfollowUser} from "./FollowUser";
+import {Loader} from "./Loader";
 
 const reposQuery = gql`
 query Myrepositories($first:Int!){
@@ -66,7 +67,7 @@ function Myrepositories() {
     return (
         <Query query={reposQuery} variables={{first: 10}}>
             {({data, loading}) => {
-                if (loading) return <p>loading...</p>;
+                if (loading) return <Loader variables={{loading}}/>;
                 return (
                     <DisplayFullprofile data={data.viewer}/>)
             }}
@@ -102,12 +103,13 @@ query Userrepositories($login:String!){
 }
 `;
 
+
 export function UserRepositories() {
     let {login} = useParams();
     return (
         <Query query={userQuery} variables={{login}}>
             {({data, loading}) => {
-                if (loading) return <p>loading...</p>;
+                if (loading) return <Loader variables={{loading}}/>;
                 return (
                     <DisplayFullprofile data={data.user}/>)
             }}

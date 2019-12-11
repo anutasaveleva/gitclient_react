@@ -6,6 +6,7 @@ import RemoveStar from "./RemoveStar";
 import LockIcon from '@material-ui/icons/Lock';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
 import './App.css';
+import {Loader} from "./Loader";
 
 const GET_REPOSITORIES_OF_ORGANIZATION = gql`
   query Reps($quer: String!) {
@@ -33,7 +34,7 @@ const GET_REPOSITORIES_OF_ORGANIZATION = gql`
 const Reps = ({quer}) => (
     <Query query={GET_REPOSITORIES_OF_ORGANIZATION} variables={{quer}}>
         {({data, loading}) => {
-            return (loading ? <div>Loading ...</div> :
+            return (loading ? <Loader variables={{loading}}/> :
                 data ? <div><Repositories repositories={data.search}/></div> :
                     <p>Nothing was found</p>);
         }

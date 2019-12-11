@@ -6,6 +6,7 @@ import './App.css';
 import LockIcon from '@material-ui/icons/Lock';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
 import ArchiveIcon from '@material-ui/icons/Archive';
+import {Loader} from "./Loader";
 
 const GET_REPOSITORY = gql`
   query Repos($name: String!, $login: String!) {
@@ -52,7 +53,7 @@ export const Repository = () => {
     let {login, name} = useParams();
     return (<Query query={GET_REPOSITORY} variables={{login, name}}>
         {({data, loading}) => {
-            return (loading ? <div>Loading ...</div> :
+            return (loading ? <Loader variables={{loading}}/> :
                 data ? <DisplayRepos data={data}/> :
                     <p>Nothing was found</p>);
         }

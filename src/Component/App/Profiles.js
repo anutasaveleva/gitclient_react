@@ -2,6 +2,7 @@ import React from 'react';
 import gql from 'graphql-tag';
 import {Query} from 'react-apollo';
 import './App.css';
+import {Loader} from "./Loader";
 
 const userQuery = gql`
 query User($login:String!){
@@ -18,7 +19,7 @@ query User($login:String!){
 export const Profiles = ({login}) => (
     <Query query={userQuery} variables={{login}}>
         {({data, loading}) => {
-            return (loading ? <div>Loading ...</div> :
+            return (loading ? <Loader variables={{loading}}/> :
                 data ? <User data={data}/> :
                     <p>Nothing was found</p>);
         }
