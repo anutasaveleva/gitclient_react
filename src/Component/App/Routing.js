@@ -13,7 +13,7 @@ import {Repository} from "./Repository";
 function Routing() {
     const currentUser = localStorage.getItem('token');
     return (
-        <Router basename="https://anutasaveleva.github.io/gitclient_react">
+        <Router>
             <Switch>
                 {currentUser && <Route path="/myprofile" component={Profile}/>}
                 {<Route exact path="/auth" component={Auth}/>}
