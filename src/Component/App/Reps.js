@@ -64,7 +64,7 @@ const RepositoryList = ({
                             repositories,
                             selectedRepositoryIds,
                         }) => (
-    <ul>
+    <div>
         {repositories.edges.map(({node}) => {
                 const isSelected = selectedRepositoryIds.includes(node.id);
 
@@ -85,6 +85,6 @@ const RepositoryList = ({
             }
         )
         }
-    </ul>
+    </div>
 );
 export default Reps;

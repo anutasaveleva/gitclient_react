@@ -54,7 +54,7 @@ function DisplayFullprofile(props) {
                         </div>
                     </div>
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={1}>
                     <h2>Repositories</h2>
                     <Repositories repositories={data.repositories} login={data.login}/>
                 </Grid>

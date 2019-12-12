@@ -75,7 +75,6 @@ a:any-link{
 }
 
 .wrap{
-  width: 30%;
   position: absolute;
   top: 20%;
   left: 50%;
@@ -101,8 +100,9 @@ a:any-link{
 
 .RepositoryItem {
     display: flex;
+  margin-top: 5px;
     justify-content: space-between;
-    width: 60%;
+    width: 200%;
 }
 h2 {
     margin-left: 50px;
