@@ -1,4 +1,4 @@
-# [Github client](https://anutasaveleva.github.io/gitclient_react/)
+# [Github client](https://desolate-cliffs-64175.herokuapp.com/)
 
 ### Current features
 <ol> 
