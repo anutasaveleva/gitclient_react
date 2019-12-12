@@ -13,6 +13,7 @@ const GET_REPOSITORY = gql`
     repository(owner:$login, name: $name) {
             id
             url
+            name
             viewerHasStarred
             isPrivate
             isArchived
@@ -35,6 +36,7 @@ function DisplayRepos(props) {
     const {data} = props;
     return (<div className="card">
             <div className="RepositoryCard">
+                <h1>{data.repository.name}</h1>
                 <p className="login"> {data.repository.owner.login}</p>
                 {data.repository.isPrivate && <LockIcon/>}
                 {!data.repository.isPrivate && <LockOpenIcon/>}
