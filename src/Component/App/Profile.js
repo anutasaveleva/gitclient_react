@@ -111,7 +111,7 @@ export function UserRepositories() {
             {({data, loading}) => {
                 if (loading) return <Loader variables={{loading}}/>;
                 return (
-                    <DisplayFullprofile data={data.user}/>)
+                    <DisplayFullprofile data={data?.user}/>)
             }}
         </Query>
     );
