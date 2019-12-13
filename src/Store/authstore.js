@@ -12,9 +12,7 @@ function authentication(state = initialState, action) {
                 loggedIn: true
             };
         case 'LOGOUT':
-            const currentUser = localStorage.getItem('currentUser');
-            localStorage.removeItem('currentUser');
-            currentUser.next(null);
+            localStorage.removeItem('token');
             return {
                 user: {},
                 loggedIn: false

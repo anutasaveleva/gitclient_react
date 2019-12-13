@@ -1,5 +1,4 @@
 import React from 'react';
-import gql from 'graphql-tag';
 import {Query} from 'react-apollo';
 import Star from "./AddStar";
 import RemoveStar from "./RemoveStar";
@@ -7,32 +6,10 @@ import LockIcon from '@material-ui/icons/Lock';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
 import './App.css';
 import {Loader} from "./Loader";
-
-const GET_REPOSITORIES_OF_ORGANIZATION = gql`
-  query Reps($quer: String!) {
-    search(query: $quer, type: REPOSITORY, first: 10) {
-      edges {
-        node {
-          ... on Repository {
-            id
-            name
-            viewerHasStarred
-            url
-            isPrivate
-            isArchived
-            owner {
-            login
-            avatarUrl
-          }
-          }
-        }
-      }
-    }
-  }
-`;
+import {GET_REPOSITORIES} from "../../Queries/get_repositories";
 
 const Reps = ({quer}) => (
-    <Query query={GET_REPOSITORIES_OF_ORGANIZATION} variables={{quer}}>
+    <Query query={GET_REPOSITORIES} variables={{quer}}>
         {({data, loading}) => {
             return (loading ? <Loader variables={{loading}}/> :
                 data ? <div><Repositories repositories={data.search}/></div> :

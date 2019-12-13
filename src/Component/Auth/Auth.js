@@ -6,6 +6,9 @@ import Container from "@material-ui/core/Container";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import {makeStyles} from '@material-ui/core/styles';
+import {useLazyQuery} from "@apollo/react-hooks";
+import VALIDATION_QUERY from "../../Queries/validation";
+
 
 const useStyles = makeStyles(theme => ({
     paper: {
@@ -24,11 +27,28 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-const LoginForm = ({stats}) => {
 
+const LoginForm = () => {
     const [password, setPassword] = useState('');
-    let [token, updateToken] = useState(localStorage.getItem('token'));
+    const [token] = useState(localStorage.getItem('token'));
     const classes = useStyles();
+    const [error, setError] = useState(false);
+    const [checkToken] = useLazyQuery(VALIDATION_QUERY, {
+        onCompleted: () => {
+            setError(false);
+            window.location.reload();
+        },
+        onError: () => {
+            setError(true);
+            localStorage.removeItem('token');
+        }
+    });
+
+    const login = () => {
+        localStorage.setItem('token', password);
+        checkToken();
+    };
+
     return token ? (
         <Redirect to='/'/>
     ) : (
@@ -52,28 +72,22 @@ const LoginForm = ({stats}) => {
                         value={password}
                         onChange={(event) => setPassword(event.target.value)}
                     />
+                    {error && <Typography color="error">
+                        Token is invalid. Try again!
+                    </Typography>}
                     <Button
                         type="button"
                         fullWidth
                         variant="contained"
                         color="primary"
                         className={classes.submit}
-                        onClick={loginFor}>
+                        onClick={login}>
                         Sign In
                     </Button>
                 </div>
             </Container>
         </div>
     );
-
-    function loginFor() {
-        localStorage.setItem('token', password);
-        setPassword();
-        updateToken(localStorage.getItem('token'));
-        window.location.reload(true);
-    }
-
-
 };
 
 export default LoginForm;
