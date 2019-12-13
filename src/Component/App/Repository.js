@@ -7,30 +7,9 @@ import LockIcon from '@material-ui/icons/Lock';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
 import ArchiveIcon from '@material-ui/icons/Archive';
 import {Loader} from "./Loader";
+import {GET_REPOSITORY} from "../../Queries/get_repository";
 
-const GET_REPOSITORY = gql`
-  query Repos($name: String!, $login: String!) {
-    repository(owner:$login, name: $name) {
-            id
-            url
-            name
-            viewerHasStarred
-            isPrivate
-            isArchived
-            primaryLanguage {
-                name
-            }
-            stargazers {
-                totalCount
-            }
-            description
-            owner {
-                login
-                avatarUrl
-            }
-        }
-  }
-`;
+
 
 function DisplayRepos(props) {
     const {data} = props;
