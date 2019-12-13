@@ -1,5 +1,4 @@
 import {useParams} from "react-router";
-import gql from "graphql-tag";
 import {Query} from "@apollo/react-components";
 import React from "react";
 import './App.css';

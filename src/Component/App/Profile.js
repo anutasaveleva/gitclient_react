@@ -7,7 +7,7 @@ import {useParams} from "react-router";
 import {FollowUser, UnfollowUser} from "./FollowUser";
 import {Loader} from "./Loader";
 import {MY_REPOSITORIES} from "../../Queries/my_repositories";
-import {USERQUERY} from "../../Queries/user_query";
+import {USER_REPOSITORIES} from "../../Queries/user_repositories";
 
 function DisplayFullprofile(props) {
     const {data} = props
@@ -50,7 +50,7 @@ function Myrepositories() {
 export function UserRepositories() {
     let {login} = useParams();
     return (
-        <Query query={USERQUERY} variables={{login}}>
+        <Query query={USER_REPOSITORIES} variables={{login}}>
             {({data, loading}) => {
                 if (loading) return <Loader variables={{loading}}/>;
                 return (
