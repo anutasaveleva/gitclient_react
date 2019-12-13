@@ -103,6 +103,7 @@ a:any-link{
   margin-top: 5px;
     justify-content: space-between;
     width: 200%;
+  text-align: center;
 }
 h2 {
     margin-left: 50px;

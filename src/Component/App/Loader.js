@@ -4,8 +4,9 @@ import {useParams} from "react-router";
 
 export const Loader = () => {
     let {loading} = useParams();
-    const style = {textAlign: 'center',
-    padding: '15px'
+    const style = {
+        paddingTop: '15px',
+        justifySelf:'center'
     };
     return (
         <div style={style}>
