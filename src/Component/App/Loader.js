@@ -6,7 +6,7 @@ export const Loader = () => {
     let {loading} = useParams();
     const style = {
         paddingTop: '15px',
-        justifySelf:'center'
+        justifySelf: 'center'
     };
     return (
         <div style={style}>

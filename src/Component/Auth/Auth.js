@@ -25,6 +25,7 @@ const useStyles = makeStyles(theme => ({
 
 
 const LoginForm = ({stats}) => {
+
     const [password, setPassword] = useState('');
     let [token, updateToken] = useState(localStorage.getItem('token'));
     const classes = useStyles();
